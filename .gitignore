@@ -10,3 +10,17 @@
 /composer.phar
 /vendor/
 /web/bundles/
+
+.idea/.name
+.idea/encodings.xml
+.idea/misc.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/dictionaries/NEANDHER.xml
+.idea/modules.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/php.xml
+.idea/scopes/scope_settings.xml
+.idea/symfony2.xml
+.idea/v1.iml
+.idea/vcs.xml
+.idea/workspace.xml
