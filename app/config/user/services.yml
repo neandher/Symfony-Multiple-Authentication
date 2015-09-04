@@ -1,0 +1,39 @@
+services:
+
+    app.user_manager:
+        class: AppBundle\DomainManager\UserManager
+        arguments: [ "@doctrine.orm.entity_manager" ]
+
+    app.encode_password_subscriber:
+        class: AppBundle\EventListener\User\EncodePasswordSubscriber
+        arguments: [ "@security.password_encoder" ]
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    app.canonicalizer_email_subscriber:
+        class: AppBundle\EventListener\User\CanonicalizerEmailSubscriber
+        arguments: [ "@app.helper.canonicalizer" ]
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    app.resetting_reset_subscriber:
+        class: AppBundle\EventListener\Security\ResettingResetSubscriber
+        arguments:
+            - "@session.flash_bag"
+            - "@translator.default"
+            - "@router"
+            - "%security.resetting.token_ttl%"
+        tags:
+            - { name: kernel.event_subscriber }
+
+    app.resetting_request_send_email_subscriber:
+        class: AppBundle\EventListener\Security\ResettingRequestSendEmailSubscriber
+        arguments:
+            - "@swiftmailer.mailer"
+            - "@translator.default"
+            - "@templating.engine.twig"
+            - "@router"
+            - "@session.flash_bag"
+            - "@assetic.parameter_bag"
+        tags:
+            - { name: kernel.event_subscriber }

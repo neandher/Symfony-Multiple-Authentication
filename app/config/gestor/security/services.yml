@@ -1,0 +1,25 @@
+parameters:
+
+services:
+
+    app.gestor_last_login_subscriber:
+        class: AppBundle\EventListener\User\LastLoginSubscriber
+        arguments: [ "@app.gestor_user_manager" ]
+        tags:
+            - { name: kernel.event_subscriber }
+
+    app.gestor_form_login_authenticator:
+        class: AppBundle\Security\Gestor\FormLoginAuthenticator
+        arguments: [ "@router", "@security.password_encoder", "@app.gestor_user_manager" ]
+
+    app.gestor_resetting_request_form_handler:
+        class: AppBundle\Form\Handler\Security\ResettingRequestFormHandler
+        arguments: [ "@app.gestor_user_manager", "@app.helper.token_generator", "@translator.default", "%security.resetting.token_ttl%" ]
+
+    app.gestor_resetting_reset_form_handler:
+        class: AppBundle\Form\Handler\Security\ResettingResetFormHandler
+        arguments: [ "@app.gestor_user_manager", "@session.flash_bag", "@translator.default" ]
+
+    app.gestor_change_password_form_handler:
+        class: AppBundle\Form\Handler\Security\ChangePasswordFormHandler
+        arguments: [ "@app.gestor_user_manager", "@session.flash_bag", "@translator.default" ]

@@ -1,0 +1,6 @@
+AppBundle\Entity\Admin\Acesso\AdminUser:
+
+    admin1:
+        firstName: Neandher
+        lastName: Carlos
+        user: @user2

@@ -1,0 +1,15 @@
+parameters:
+
+services:
+
+    app.admin_user_manager:
+        class: AppBundle\DomainManager\Admin\Acesso\AdminUserManager
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@app.user_manager"
+            - "@event_dispatcher"
+            - "@app.helper.canonicalizer"
+
+#    app.admin_user_form_handler:
+#        class: AppBundle\Form\Handler\Admin\Acesso\AdminUserFormHandler
+#        arguments: [ "@app.admin_user_manager" ]

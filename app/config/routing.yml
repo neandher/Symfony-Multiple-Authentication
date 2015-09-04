@@ -1,0 +1,9 @@
+gestor:
+    resource: "@AppBundle/Controller/Gestor"
+    type:     annotation
+    prefix:   /gestor
+
+admin:
+    resource: "@AppBundle/Controller/Admin"
+    type:     annotation
+    prefix:   /admin

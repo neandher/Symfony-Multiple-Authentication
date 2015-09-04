@@ -1,0 +1,7 @@
+imports:
+
+    ### Security ###
+    - { resource: security/services.yml }
+
+    ### Acesso ###
+    - { resource: acesso/services.yml }

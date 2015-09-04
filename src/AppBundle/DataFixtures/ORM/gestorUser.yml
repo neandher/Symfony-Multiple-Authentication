@@ -1,0 +1,6 @@
+AppBundle\Entity\Gestor\Acesso\GestorUser:
+
+    gestor1:
+        firstName: Neandher
+        lastName: Carlos
+        user: @user1

@@ -1,0 +1,11 @@
+parameters:
+
+services:
+
+    app.gestor_user_manager:
+        class: AppBundle\DomainManager\Gestor\Acesso\GestorUserManager
+        arguments: [ "@doctrine.orm.entity_manager", "@app.user_manager", "@event_dispatcher", "@app.helper.canonicalizer" ]
+
+    app.gestor_user_form_handler:
+        class: AppBundle\Form\Handler\Gestor\Acesso\GestorUserFormHandler
+        arguments: [ "@app.gestor_user_manager" ]

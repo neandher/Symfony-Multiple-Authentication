@@ -1,0 +1,17 @@
+AppBundle\Entity\User:
+
+    user1:
+        email: neandher89@gmail.com
+        emailCanonical: -
+        isEnabled: 1
+        plainPassword: admin@123
+        password: -
+        roles: [ROLE_GESTOR_USER]
+
+    user2:
+        email: neandher@hotmail.com
+        emailCanonical: -
+        isEnabled: 1
+        plainPassword: admin@123
+        password: -
+        roles: [ROLE_ADMIN_USER]
